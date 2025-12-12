@@ -962,12 +962,24 @@ strip:
 	$(CC_STRIP) $(MODULE_NAME).ko --strip-unneeded
 
 install:
+	all
 	install -p -m 644 $(MODULE_NAME).ko  $(MODDESTDIR)
 	/sbin/depmod -a ${KVER}
+	cp -f $(MODULE_NAME).conf /etc/modprobe.d
+	sh edit-options.sh
 
 uninstall:
 	rm -f $(MODDESTDIR)$(MODULE_NAME).ko
 	/sbin/depmod -a ${KVER}
+	rm -f /etc/modprobe.d/$(MODULE_NAME).conf
+	@echo "uninstall comlete"
+
+sign:
+	openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj "/CN=Custom MOK/"
+	mokutil --import MOK.der
+	$(KSRC)/scripts/sign-file sha256 MOK.priv MOK.der $(MODULE_NAME).ko
+
+sign-install: all sign install
 
 modules_install:
 	$(MAKE) INSTALL_MOD_STRIP=1 M=$(M) -C $(KSRC) modules_install
