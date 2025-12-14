@@ -150,15 +150,23 @@ static struct usb_device_id rtw_usb_id_tbl[] = {
 
 #ifdef CONFIG_RTL8852B
 	/*=== Realtek demoboard ===*/
-	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xB832, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
-	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xB83A, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
-	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xB852, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
-	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xB85A, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
-	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xA85B, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
-	/*=== Customer ID ===*/
-	{USB_DEVICE_AND_INTERFACE_INFO(0x3574, 0x6221 ,0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* COMFAST 8832BU */
+	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xb832, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
+	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xb83a, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
+	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xb852, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
+	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xb85a, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
+	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xa85b, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
+	/*=== Seller specific IDs ===*/
+	{USB_DEVICE_AND_INTERFACE_INFO(0x0586, 0x3428, 0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* ZyXEL NWD7605 */
+	{USB_DEVICE_AND_INTERFACE_INFO(0x0b05, 0x1a62, 0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* ASUS USB-AX55 Nano */
+	{USB_DEVICE_AND_INTERFACE_INFO(0x0db0, 0x6931, 0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* MSI AX1800 */
+	{USB_DEVICE_AND_INTERFACE_INFO(0x2001, 0x3327, 0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* D-LINK AX18U */
+	{USB_DEVICE_AND_INTERFACE_INFO(0x3574, 0x6121, 0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* COMFAST CF-943AX */
 	{USB_DEVICE_AND_INTERFACE_INFO(0x3574, 0x6241 ,0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* COMFAST 8852BU */
+	{USB_DEVICE_AND_INTERFACE_INFO(0x35bc, 0x0100, 0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* TP-LINK Archer TX20U */
+	{USB_DEVICE_AND_INTERFACE_INFO(0x35bc, 0x0108, 0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* TP-LINK Archer TX20U Nano */
+	{USB_DEVICE_AND_INTERFACE_INFO(0x7392, 0x6822, 0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* EDIMAX EW-7822UMX */
 #endif /* CONFIG_RTL8852B */
+
 #ifdef CONFIG_RTL8852BP
 	/*=== Realtek demoboard ===*/
 	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xA85C, 0xff, 0xff, 0xff), .driver_info = RTL8852BP},
